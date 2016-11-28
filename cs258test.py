@@ -29,7 +29,7 @@ class MyTopo( Topo ):
         # Add hosts and switches
         H1 = self.addHost( 'h1', ip="10.0.1.1/24" )
         H2 = self.addHost( 'h2', ip="10.0.1.2/24" )
-	H3 = self.addHost( 'h3'  ip="10.0.1.3/24" )
+	H3 = self.addHost( 'h3', ip="10.0.1.3/24" )
 	H4 = self.addHost( 'h4', ip="10.0.1.4/24" )
         
 
