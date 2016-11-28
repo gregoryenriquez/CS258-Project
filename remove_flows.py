@@ -4,6 +4,25 @@ url = "http://71.198.1.196:8181/restconf/config/opendaylight-inventory:nodes/nod
 
 headers = {'Content-Type': 'application/xml', 'Accept': 'application/xml'}
 
-response = requests.delete(url, headers=headers, auth=('admin', 'admin'))
+response = requests.delete(url, headers=headers, auth=('admin', 'admin'), data=open('set_flow1.xml').read())
+
+print(response.text)
+
+
+url = "http://71.198.1.196:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:1/table/0/flow/2"
+
+headers = {'Content-Type': 'application/xml', 'Accept': 'application/xml'}
+
+response = requests.delete(url, headers=headers, auth=('admin', 'admin'), data=open('set_flow2.xml').read())
+
+print(response.text)
+
+
+
+url = "http://71.198.1.196:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:1/table/0/flow/3"
+
+headers = {'Content-Type': 'application/xml', 'Accept': 'application/xml'}
+
+response = requests.delete(url, headers=headers, auth=('admin', 'admin'), data=open('set_flow3.xml').read())
 
 print(response.text)

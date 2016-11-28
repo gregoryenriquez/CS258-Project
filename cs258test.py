@@ -10,6 +10,7 @@ from mininet.net import Mininet
 from mininet.cli import CLI
 from mininet.log import setLogLevel
 from mininet.link import Intf
+import time
 
 setLogLevel('info')
 
@@ -27,10 +28,10 @@ class MyTopo( Topo ):
         Topo.__init__( self )
 
         # Add hosts and switches
-        H1 = self.addHost( 'h1', ip="10.0.1.1/24" )
-        H2 = self.addHost( 'h2', ip="10.0.1.2/24" )
-	H3 = self.addHost( 'h3', ip="10.0.1.3/24" )
-	H4 = self.addHost( 'h4', ip="10.0.1.4/24" )
+        H1 = self.addHost( 'h1', ip="10.0.1.1/8" )
+        H2 = self.addHost( 'h2', ip="10.0.1.2/8" )
+	H3 = self.addHost( 'h3', ip="10.0.1.3/8" )
+	H4 = self.addHost( 'h4', ip="10.0.1.4/8" )
         
 
 	S1 = self.addSwitch( 's1' )
@@ -66,6 +67,8 @@ topo = MyTopo()
 net = Mininet(topo=topo, controller=c0)
 try:
 	net.start()
+	time.sleep(5)
+	net.pingAll()
 	CLI(net)
 
 
