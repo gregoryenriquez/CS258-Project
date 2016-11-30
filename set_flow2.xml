@@ -16,24 +16,10 @@
         <instruction>
             <order>0</order>
             <apply-actions>
-		<action>
-			<push-mpls-action>
-				<ethernet-type>34887</ethernet-type>	
-			</push-mpls-action>
-			<order>0</order>
-                </action>
-		<action>
-			<set-field>
-				<protocol-match-fields>
-					<mpls-label>28</mpls-label>
-				</protocol-match-fields>
-			</set-field>
-			<order>1</order>
-		</action>
-		<action>
-                   <order>2</order>
+                <action>
+                   <order>0</order>
                    <output-action>
-			<output-node-connector>2</output-node-connector>
+			<output-node-connector>FLOOD</output-node-connector>
 		   </output-action>
                 </action>
             </apply-actions>
